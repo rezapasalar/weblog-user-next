@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Logo from './logo'
+import Brand from './brand'
 import Navigation from './navigation'
 import DarkMode from './darkMode'
 import Hamburger from './hamburger'
@@ -10,11 +10,11 @@ export default function Navbar () {
     const [isShowMenu, setIsShowMenu] = useState(false)
 
     return (
-        <nav className="bg-white dark:bg-gray-800 py-2 md:py-0">
+        <nav className="bg-gray-50 dark:bg-gray-800 py-2 md:py-0">
             <div className="container mx-auto px-4 md:px-0">
                 <div className="md:flex justify-between md:space-x-reverse md:space-x-5">
                     <div className="flex justify-between">
-                        <Logo />
+                        <Brand />
                         <Hamburger isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
                     </div>
 

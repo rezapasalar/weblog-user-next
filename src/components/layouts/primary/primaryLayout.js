@@ -9,7 +9,7 @@ export default function PrimaryLayout ({children}) {
 
             <Navbar />
 
-            <main className="relative bg-gray-50 dark:bg-gray-900 py-6 min-h-[calc(100vh-120px)]">
+            <main className="relative bg-gray-100 dark:bg-gray-900 py-6 min-h-[calc(100vh-120px)]">
                 {children}
             </main>
 
