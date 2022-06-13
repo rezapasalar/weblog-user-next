@@ -1,7 +1,7 @@
 import faker from '@faker-js/faker'
 import Factory from '.'
-import {createArticleService} from '../../services/articlesService'
-import {createSlug} from '../helperFunctions'
+import { createArticleService } from '../../services/articlesService'
+import { createSlug } from '../helperFunctions'
 
 class ArticleFactory extends Factory {
 

@@ -1,6 +1,6 @@
 import faker from '@faker-js/faker'
 import Factory from '.'
-import {createTodoService} from '../../services/todosService'
+import { createTodoService } from '../../services/todosService'
 
 class TodoFactory extends Factory {
 

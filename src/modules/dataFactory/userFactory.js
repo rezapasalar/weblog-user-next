@@ -1,6 +1,6 @@
 import faker from '@faker-js/faker'
 import Factory from '.'
-import {createUserService} from '../../services/usersService'
+import { createUserService } from '../../services/usersService'
 
 class UserFactory extends Factory {
 

@@ -38,7 +38,7 @@ export default function Login () {
                         <Button type="submit" color="primary" className="mt-3" widthFull>ورود</Button>
                     </form>
                     
-                    <div className="flex justify-center text-xs text-gray-400 mt-5">
+                    <div className="flex justify-center text-xs text-gray-400 mt-3">
                         <span>ورود شما به معنای پذیرش</span>
                         <Link href="/terms"><a className="mx-1 text-indigo-600">شرایط</a></Link>
                         <span>و</span>
@@ -52,4 +52,4 @@ export default function Login () {
     )
 }
 
-Login.getLayout = (page => page)
+Login.layout = null
