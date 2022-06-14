@@ -2,10 +2,13 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 import { FullScreenCenterWrap } from '../../components/global/wraps'
 import LogoSvg from '../../components/global/svg/logo'
 import Button from '../../components/global/elements/button'
 import InputForm from '../../components/global/form/input'
+import { getTheme } from '../../modules/helperFunctions'
+import { SUCCESSFUL_LOGIN } from '../../constants/responses'
 
 export default function Login () {
 
@@ -17,6 +20,7 @@ export default function Login () {
 
     const submitHandler = e => {
         e.preventDefault()
+        toast.success(SUCCESSFUL_LOGIN, {...getTheme()})
         router.push('/')
     }
 

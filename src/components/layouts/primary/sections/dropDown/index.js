@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 import DropDownItem from './item'
+import { getTheme } from '../../../../../modules/helperFunctions'
+import { SUCCESSFUL_LOGOUT } from '../../../../../constants/responses'
 import { LoginSvg, LogoutSvg, UserSvg, SettingSvg, MoreSvg } from '../../../../global/svg'
 
 export default function DropDown () {
@@ -24,6 +27,7 @@ export default function DropDown () {
 
     const logoutHandler = () => {
         setIsShow(false)
+        toast.success(SUCCESSFUL_LOGOUT, {...getTheme()})
         router.push('/auth/login')
     }
 

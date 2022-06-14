@@ -12,6 +12,10 @@ import Close from './close'
 import Star from './star'
 import Dollar from './dollar'
 import List from './list'
+import Comment from './comment'
+import Like from './like'
+import DisLike from './disLike'
+import Calender from './calender'
 
 export const LogoSvg = Logo
 export const LoginSvg = Login
@@ -27,3 +31,7 @@ export const CloseSvg = Close
 export const StarSvg = Star
 export const DollarSvg = Dollar
 export const ListSvg = List
+export const CommentSvg = Comment
+export const LikeSvg = Like
+export const DisLikeSvg = DisLike
+export const CalenderSvg = Calender

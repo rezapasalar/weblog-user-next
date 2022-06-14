@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify'
 import Navbar from './sections/navbar'
 import Footer from './sections/footer'
 import ScrollTop from './sections/scrollTop'
@@ -16,6 +17,8 @@ export default function PrimaryLayout ({children}) {
             <Footer />
             
             <ScrollTop />
+
+            <ToastContainer rtl={true} position="bottom-right" /> 
             
         </div>
     )

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { ToastContainer } from 'react-toastify'
 import Sidebar from './sections/sidebar'
 import Header from './sections/header'
 
@@ -26,6 +27,8 @@ export default function PanelLayout ({children}) {
                     </main>
                 </div>
             </div>
+
+            <ToastContainer rtl={true} position="bottom-right" />
         </div>
     )
 }
