@@ -1,7 +1,7 @@
-export default function Alert ({children, color = 'primary', className: classes = ''}) {
+export default function Alert ({children, variant = 'primary', className: classes = ''}) {
 
-    const getColor = () => {
-        switch (color) {
+    const getVariant = () => {
+        switch (variant) {
             case 'primary' : return 'bg-indigo-100'
             case 'danger' : return 'bg-red-100'
             case 'success' : return 'bg-green-100'
@@ -11,7 +11,7 @@ export default function Alert ({children, color = 'primary', className: classes 
     }
 
     return (
-        <div className={`${getColor()} dark:bg-gray-600 text-gray-500 dark:text-gray-300 text-md rounded-lg p-4 ${classes}`}>
+        <div className={`${getVariant()} dark:bg-gray-600 text-gray-500 dark:text-gray-300 text-md rounded-lg p-4 ${classes}`}>
             {children}
         </div>
     )

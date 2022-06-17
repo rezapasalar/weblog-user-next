@@ -2,7 +2,7 @@ import DarkMode from './darkMode'
 
 export default function Hamburger ({isShowMenu, setIsShowMenu}) {
     return (
-        <div className="flex items-center md:hidden space-x-reverse space-x-2">
+        <div className="flex items-center lg:hidden space-x-reverse space-x-2">
             <div className="flex items-center">
                 <DarkMode />
             </div>

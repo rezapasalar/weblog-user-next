@@ -21,7 +21,7 @@ export default function Login () {
     const submitHandler = e => {
         e.preventDefault()
         toast.success(SUCCESSFUL_LOGIN, {...getTheme()})
-        router.push('/')
+        router.push('/panel')
     }
 
     return (
@@ -39,7 +39,7 @@ export default function Login () {
                         <h1 className="text-center text-xl font-semibold text-gray-500 mt-6 mb-6">ورود | ثبت نام</h1>
                         
                         <InputForm label="لطفا شماره موبایل یا ایمیل خود را وارد کنید" dir="ltr" keyname="email" value="" inputHandler={(key, val) => {}} />
-                        <Button type="submit" color="primary" className="mt-3" widthFull>ورود</Button>
+                        <Button type="submit" variant="primary" className="mt-3" widthFull>ورود</Button>
                     </form>
                     
                     <div className="flex justify-center text-xs text-gray-400 mt-3">

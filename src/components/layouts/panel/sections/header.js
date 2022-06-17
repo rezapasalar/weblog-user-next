@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { HamburgerSvg, HomeSvg } from '../../../global/svg'
-import DarkMode from '../../primary/sections/darkMode'
-import Notification from '../../primary/sections/notification'
+import DarkMode from '../../user/sections/darkMode'
+import Notification from '../../user/sections/notification'
 import { convertDateToPersianDate } from '../../../../modules/helperFunctions'
 
 export default function Header ({setIsShowSidebar}) {

@@ -28,7 +28,7 @@ export default function DropDown () {
     const logoutHandler = () => {
         setIsShow(false)
         toast.success(SUCCESSFUL_LOGOUT, {...getTheme()})
-        router.push('/auth/login')
+        router.push('/')
     }
 
     const redirect = (to) => {

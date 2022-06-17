@@ -3,9 +3,9 @@ import { CalenderSvg, CommentSvg, LikeSvg, DisLikeSvg } from '../../global/svg'
 
 export default function ShowArticle ({article}) {
     return (
-        <div className="bg-white dark:bg-gray-800 md:rounded-xl space-y-5 shadow-xl">
+        <div className="bg-white dark:bg-gray-800 md:rounded-xl space-y-5 shadow-md">
             <div className="md:p-5"><img className="w-full md:rounded-xl" src={`https://picsum.photos/id/${random(160, 180)}/300/100`} /></div>
-            <h1 className="text-gray-600 dark:text-gray-300 text-lg font-semibold px-4 md:px-5">{article.title}</h1>
+            <h1 className="text-gray-600 dark:text-gray-300 text-xl font-semibold px-4 md:px-5">{article.title}</h1>
             <p className="text-gray-500 dark:text-gray-300 text-justify leading-[3rem] px-4 md:px-5">{article.body}</p>
             <div className="flex flex-grow items-end justify-between text-gray-500 dark:text-gray-200 p-4 md:p-5">
                 <div className="flex items-center space-x-reverse space-x-1">

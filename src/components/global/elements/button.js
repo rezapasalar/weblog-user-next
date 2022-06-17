@@ -1,4 +1,4 @@
-export default function Button ({children, onClick = null, type = 'button', size = 'lg', color = 'primary', outline = false , widthFull = false, className: classes = ''}) {
+export default function Button ({children, onClick = null, type = 'button', size = 'lg', variant = 'primary', outline = false , widthFull = false, className: classes = ''}) {
 
     const getSize = () => {
         switch (size) {
@@ -10,9 +10,9 @@ export default function Button ({children, onClick = null, type = 'button', size
         }
     }
 
-    const getColor = () => {
+    const getVariant = () => {
         if (outline) {
-            switch (color) {
+            switch (variant) {
                 case 'primary' : return 'border border-indigo-600 !text-indigo-600 hover:bg-indigo-700 hover:!text-white hover:border-indigo-700 focus:border-indigo-800'
                 case 'danger' : return 'border border-red-600 !text-red-600 hover:bg-red-700 hover:!text-white hover:border-red-700 focus:border-red-800'
                 case 'success' : return 'border border-green-600 !text-green-600 hover:bg-green-700 hover:!text-white hover:border-green-700 focus:border-green-800'
@@ -21,7 +21,7 @@ export default function Button ({children, onClick = null, type = 'button', size
                 case 'dark' : return 'border border-gray-800 !text-gray-800 hover:bg-gray-900 hover:!text-white hover:border-gray-900 focus:border-black'
             }
         } else {
-            switch (color) {
+            switch (variant) {
                 case 'primary' : return 'bg-indigo-600 hover:!bg-indigo-700 focus:bg-indigo-800'
                 case 'danger' : return 'bg-red-600 hover:!bg-red-700 focus:bg-red-800'
                 case 'success' : return 'bg-green-600 hover:!bg-green-700 focus:bg-green-800'
@@ -33,7 +33,7 @@ export default function Button ({children, onClick = null, type = 'button', size
     }
 
     return (
-        <button onClick={onClick} type={type} className={`${getColor()} ${getSize()} ${widthFull ? 'w-full' : ''} focus:outline-none text-white rounded-lg duration-300 select-none ${classes}`}>
+        <button onClick={onClick} type={type} className={`${getVariant()} ${getSize()} ${widthFull ? 'w-full' : ''} focus:outline-none text-white rounded-lg duration-300 select-none ${classes}`}>
             {children}
         </button>
     )

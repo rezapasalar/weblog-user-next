@@ -16,3 +16,8 @@ export const searchArticleServiceWithFetch = async (key, value) => {
     const res = await fetch(`https://6284ab5d6b6c317d5ba7737c.endapi.io${route}?search=${key}:${value}`)
     return await res.json()
 }
+
+export const getArticlesServiceFetch = async (page = 1, filter = null, sort = 'createdAt:-1') => {
+    const res = await fetch(`https://6284ab5d6b6c317d5ba7737c.endapi.io${route}?page=${page}${filter ? `&filter=${filter}` : ''}&sort=${sort}`)
+    return await res.json()
+}

@@ -16,6 +16,7 @@ import Comment from './comment'
 import Like from './like'
 import DisLike from './disLike'
 import Calender from './calender'
+import Refresh from './refresh'
 
 export const LogoSvg = Logo
 export const LoginSvg = Login
@@ -35,3 +36,4 @@ export const CommentSvg = Comment
 export const LikeSvg = Like
 export const DisLikeSvg = DisLike
 export const CalenderSvg = Calender
+export const RefreshSvg = Refresh
