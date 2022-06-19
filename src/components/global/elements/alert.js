@@ -1,4 +1,4 @@
-export default function Alert ({children, variant = 'primary', className: classes = ''}) {
+export default function Alert ({children, variant = 'primary', toggleRounded = true, className: classes = ''}) {
 
     const getVariant = () => {
         switch (variant) {
@@ -11,7 +11,7 @@ export default function Alert ({children, variant = 'primary', className: classe
     }
 
     return (
-        <div className={`${getVariant()} dark:bg-gray-600 text-gray-500 dark:text-gray-300 text-md rounded-lg p-4 ${classes}`}>
+        <div className={`${getVariant()} ${toggleRounded ? 'md:rounded-lg' : 'rounded-lg'} dark:bg-gray-600 text-gray-500 dark:text-gray-300 text-md p-4 ${classes}`}>
             {children}
         </div>
     )

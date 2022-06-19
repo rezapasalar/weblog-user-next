@@ -14,6 +14,13 @@ module.exports = {
       fontFamily: {
         "vazir": ["vazir", ...defaultTheme.fontFamily.sans]
       },
+      backgroundImage: {
+        'pattern-light': "url('/svg/pattern-light.svg')",
+        'pattern-dark': "url('/svg/pattern-dark.svg')",
+      },
+      backgroundSize: {
+        'size-600': 600
+      },
       keyframes: {
         'slow': {'0%': {opacity: 0}, '100%': {opacity: 1}},
         'modal': {'0%': {opacity: .5, transform: 'translateY(-50px)'}, '100%': {opacity: 1, transform: 'translateY(0)'}}

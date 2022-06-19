@@ -23,7 +23,7 @@ export default function ListArticles () {
             {
                 !articles.length 
                     ? 
-                        <Alert className="mx-4 md:mx-0">
+                        <Alert>
                             {
                                 isLoading 
                                     ? 
