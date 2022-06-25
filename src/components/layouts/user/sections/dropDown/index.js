@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import DropDownItem from './item'
 import { getTheme } from '../../../../../modules/helperFunctions'
 import { SUCCESSFUL_LOGOUT } from '../../../../../constants/responses'
-import { LoginSvg, LogoutSvg, UserSvg, SettingSvg, MoreSvg } from '../../../../global/svg'
+import { LoginSvg, RegisterSvg, LogoutSvg, UserSvg, SettingSvg, MoreSvg } from '../../../../global/svg'
 
 export default function DropDown () {
 
@@ -44,9 +44,14 @@ export default function DropDown () {
             <div onClick={() => setIsShow(false)} className={`${isShow ? 'block' : 'hidden'} fixed inset-0 top-[60px] animate-slow-200  bg-gray-500/50 dark:bg-gray-900/50`}></div>
 
             <div className={`${isShow ? 'block' : 'hidden'} origin-top-left absolute left-0 top-5 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-gray-300/80 dark:ring-gray-700/70 focus:outline-none animate-slow-200`}>
-                <DropDownItem position="bottom" onClick={() => redirect('/auth/login')}>
+                <DropDownItem position="top" onClick={() => redirect('/auth/register')}>
+                    <RegisterSvg className="h-5 w-5" />
+                    <span>ثبت نام</span>
+                </DropDownItem>
+
+                <DropDownItem onClick={() => redirect('/auth/login')}>
                     <LoginSvg className="h-5 w-5" />
-                    <span>ورود | ثبت نام</span>
+                    <span>ورود</span>
                 </DropDownItem>
 
                 <DropDownItem position="top" onClick={() => redirect('/panel')}>
@@ -54,7 +59,7 @@ export default function DropDown () {
                     <span>پنل کاربری</span>
                 </DropDownItem>
 
-                <DropDownItem position="top" onClick={() => redirect('/panel/setting')}>
+                <DropDownItem onClick={() => redirect('/panel/setting')}>
                     <SettingSvg className="h-5 w-5" />
                     <span>تنظیمات</span>
                 </DropDownItem>

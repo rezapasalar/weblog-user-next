@@ -23,7 +23,7 @@ export default function PanelLayout ({children}) {
 
                 <div className="lg:col-span-9 col-span-12 space-y-6">
                     <Header setIsShowSidebar={setIsShowSidebar} />
-                    <main className="overflow-hidden md:rounded-xl bg-white dark:bg-gray-800 p-5 shadow-md">
+                    <main className="overflow-hidden md:rounded-xl bg-white dark:bg-gray-800 p-5 md:p-6 shadow-md">
                         {children}
                     </main>
                 </div>

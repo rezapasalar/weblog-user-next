@@ -18,13 +18,9 @@ export default function MyApp ({ Component, pageProps }) {
     return (
         <>
             <ToastContainer rtl={true} position="bottom-right" />
-            {
-                getLayout(
-                    <Provider store={store}>
-                        <Component {...pageProps}></Component>
-                    </Provider>
-                )
-            }
+            <Provider store={store}>
+                {getLayout(<Component {...pageProps}></Component>)}
+            </Provider>
         </>
     )
 }
