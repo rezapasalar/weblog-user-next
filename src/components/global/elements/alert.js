@@ -7,6 +7,7 @@ export default function Alert ({children, variant = 'primary', toggleRounded = t
             case 'success' : return 'bg-green-100'
             case 'warning' : return 'bg-orange-100'
             case 'secondary' : return 'bg-gray-100'
+            default : return 'bg-indigo-100'
         }
     }
 

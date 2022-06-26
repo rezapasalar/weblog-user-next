@@ -7,6 +7,7 @@ export default function Button ({children, onClick = null, type = 'button', size
             case 'md' : return 'text-md px-4 py-2'
             case 'lg' : return 'text-md px-5 py-[.7rem]'
             case 'xl' : return 'text-xl px-5 py-3'
+            default : return 'text-xs px-2 py-1'
         }
     }
 
@@ -19,6 +20,7 @@ export default function Button ({children, onClick = null, type = 'button', size
                 case 'warning' : return 'border border-orange-600 !text-orange-600 hover:bg-orange-700 hover:!text-white hover:border-orange-700 focus:border-orange-800'
                 case 'secondary' : return 'border border-gray-400 !text-gray-500 dark:!text-gray-200 hover:bg-gray-400 hover:!text-white hover:border-gray-400 focus:border-gray-600'
                 case 'dark' : return 'border border-gray-800 !text-gray-800 hover:bg-gray-900 hover:!text-white hover:border-gray-900 focus:border-black'
+                default : return 'border border-indigo-600 !text-indigo-600 hover:bg-indigo-700 hover:!text-white hover:border-indigo-700 focus:border-indigo-800'
             }
         } else {
             switch (variant) {
@@ -28,6 +30,7 @@ export default function Button ({children, onClick = null, type = 'button', size
                 case 'warning' : return 'bg-orange-600 border border-orange-600 hover:!bg-orange-700 focus:bg-orange-800'
                 case 'secondary' : return 'bg-gray-600 border border-gray-600 hover:!bg-gray-700 focus:bg-gray-800'
                 case 'dark' : return 'bg-gray-800 border border-gray-600 hover:!bg-gray-900 focus:bg-gray-800'
+                default : return 'bg-gray-800 border border-gray-600 hover:!bg-gray-900 focus:bg-gray-800'
             }
         }
     }

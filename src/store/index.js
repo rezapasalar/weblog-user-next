@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import globalReducer from './slices/globalSlice'
-import articlesReducer from './slices/articlesSlice'
+import globalReducer from './slices/global'
+import articlesReducer from './slices/articles'
 
 export const store = configureStore({
     reducer: {

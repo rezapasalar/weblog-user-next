@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import GroupForm from './group'
 import ColumnGridWrap from '../wraps/columnGrid'
 import SelectElement from '../elements/select'
-import {getCurrentPersianYear} from '../../../modules/helperFunctions'
+import { getCurrentPersianYear } from '../../../modules/helperFunctions'
 
 export default function DateBirth ({label = '', value, inputHandler, error = ''}) {
 
@@ -21,9 +21,9 @@ export default function DateBirth ({label = '', value, inputHandler, error = ''}
     return (
         <GroupForm label={label} error={error ? 'فرمت تاریخ معتبر نیست' : ''}>
             <ColumnGridWrap responsive="off" cols="3" gap="3" className="z-50">
-                <SelectElement value={value.day} options={data?.days} keyname="day" type="number" inputHandler={inputHandler} placeholder="روز" />
-                <SelectElement value={value.month} options={data?.months} keyname="month" inputHandler={inputHandler} placeholder="ماه" />
-                <SelectElement value={value.year} options={data?.years} keyname="year" type="number" inputHandler={inputHandler} placeholder="سال" />
+                <SelectElement value={value.day} options={data?.days} onChange={({target: {value}}) => inputHandler('day', value, 'number')} placeholder="روز" />
+                <SelectElement value={value.month} options={data?.months} onChange={({target: {value}}) => inputHandler('month', value)} placeholder="ماه" />
+                <SelectElement value={value.year} options={data?.years} onChange={({target: {value}}) => inputHandler('year', value, 'number')} placeholder="سال" />
             </ColumnGridWrap>
         </GroupForm>
     )

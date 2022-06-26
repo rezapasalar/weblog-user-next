@@ -18,6 +18,17 @@ import DisLike from './disLike'
 import Calender from './calender'
 import Refresh from './refresh'
 import Register from './register'
+import GridView from './gridView'
+import DataSet from './dataSet'
+import Insert from './insert'
+import Dashboard from './dashboard'
+import Users from './users'
+import Article from './article'
+import Todo from './todo'
+import Profile from './profile'
+import Light from './light'
+import Dark from './dark'
+import Preference from './preference'
 
 export const LogoSvg = Logo
 export const LoginSvg = Login
@@ -39,3 +50,14 @@ export const DisLikeSvg = DisLike
 export const CalenderSvg = Calender
 export const RefreshSvg = Refresh
 export const RegisterSvg = Register
+export const GridViewSvg = GridView
+export const DataSetSvg = DataSet
+export const InsertSvg = Insert
+export const DashboardSvg = Dashboard
+export const UsersSvg = Users
+export const ArticleSvg = Article
+export const TodoSvg = Todo
+export const ProfileSvg = Profile
+export const LightSvg = Light
+export const DarkSvg = Dark
+export const PreferenceSvg = Preference

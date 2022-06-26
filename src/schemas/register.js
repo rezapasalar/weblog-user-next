@@ -1,10 +1,8 @@
-import { object, string, number } from 'yup'
-import { getCurrentPersianYear } from '../modules/helperFunctions'
+import { object, string, ref } from 'yup'
 import { messages, transfer } from '.'
-import { searchUserService } from '../services/usersService'
+import { searchUserService } from '../services/users'
 
-const {integer, email} = messages
-const currentYear = Number(getCurrentPersianYear('en'))
+const {email, confirmed} = messages
 
 export const initialData = {
     is_admin: 0,
@@ -13,12 +11,12 @@ export const initialData = {
     day: '',
     month: '',
     year: '',
-    code: '',
-    mobile: '',
-    email: '', 
+    email: '',
+    password: '',
+    passwordConfirmation: ''
 }
 
-export const profileSchema = () => { 
+export const registerSchema = () => { 
     return object({
         name: 
             string()
@@ -27,27 +25,14 @@ export const profileSchema = () => {
             string()
             .required(transfer('required', 'family'))
         ,day: 
-            number()
-            .typeError(transfer('integer', 'name'))
+            string()
             .required(transfer('required', 'day'))
-            .min(1, transfer('min', 'day', 1))
-            .max(31, transfer('max', 'day', 31))
         ,month: 
             string()
             .required(transfer('required', 'month'))
         ,year: 
-            number(integer)
+            string()
             .required(transfer('required', 'year'))
-            .min(1330, transfer('min', 'year', 1330))
-            .max(currentYear, transfer('max', 'year', currentYear))
-        ,code:
-            string()
-            .required(transfer('required', 'code'))
-            .length(10, transfer('length', 'code', 10))
-        ,mobile:
-            string()
-            .required(transfer('required', 'code'))
-            .length(11, transfer('length', 'mobile', 11))
         ,email:
             string()
             .required(transfer('required', 'email'))
@@ -59,5 +44,13 @@ export const profileSchema = () => {
                     return data.length && data[0].id !== id ? false : true
                 }
             })
+        ,password:
+            string()
+            .required(transfer('required', 'password'))
+            .min(8, transfer('min', 'password', 8))
+            .max(32, transfer('max', 'password', 32))
+        ,passwordConfirmation:
+            string()
+            .oneOf([ref('password'), null], confirmed)
     })
 }

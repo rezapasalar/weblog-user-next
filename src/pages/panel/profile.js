@@ -3,13 +3,13 @@ import Head from 'next/head'
 import { useSelector, useDispatch } from 'react-redux'
 import useForm from '../../hooks/useForm'
 import { toast } from 'react-toastify'
-import { setUserInfo } from '../../store/slices/globalSlice'
+import { setUserInfo } from '../../store/slices/global'
 import { PageWrap, ColumnGridWrap, InputForm, DateBirthForm, ButtonLoading } from '../../components/global/form'
-import { initialData, profileSchema } from '../../schemas/profileSchema'
-import { updateUserService } from '../../services/usersService'
+import { initialData, profileSchema } from '../../schemas/profile'
+import { updateUserService } from '../../services/users'
 import { FORM_ERRORS, AXIOS_ERROR, SUCCESSFUL_SAVE } from '../../constants/responses'
 import { getTheme } from '../../modules/helperFunctions'
-import { searchUserService } from '../../services/usersService'
+import { searchUserService } from '../../services/users'
 
 export default function Profile () {
 

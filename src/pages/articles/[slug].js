@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { searchArticleServiceWithFetch } from '../../services/articlesService'
+import { searchArticleServiceWithFetch } from '../../services/articles'
 import ShowArticle from '../../components/user/singleArticle/show'
 import Sidebar from '../../components/user/singleArticle/sidebar'
 import Comment from '../../components/user/singleArticle/comment'
