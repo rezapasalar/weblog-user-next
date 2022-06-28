@@ -1,15 +1,17 @@
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 import Brand from '../../user/sections/brand'
 import UserInfo from './userInfo'
 import NavLink from './navLink'
 import { HomeSvg, UserSvg, SettingSvg, LogoutSvg, CloseSvg } from '../../../global/svg'
-import { SUCCESSFUL_LOGOUT } from '../../../../constants/responses'
 import { getTheme } from '../../../../modules/helperFunctions'
 
 export default function Sidebar ({setIsShowSidebar}) {
 
+    const {t} = useTranslation()
+
     const logoutHandler = () => {
-        toast.success(SUCCESSFUL_LOGOUT, {...getTheme()})
+        toast.success(t('responses.successfulLogout'), {...getTheme()})
     }
 
     return (
@@ -22,10 +24,10 @@ export default function Sidebar ({setIsShowSidebar}) {
             <UserInfo />
             
             <div className="w-full space-y-2">
-                <NavLink href="/panel" label="اصلی" icon={<HomeSvg />} onClick={() => setIsShowSidebar(false)} />
-                <NavLink href="/panel/profile" label="پروفایل" icon={<UserSvg />} onClick={() => setIsShowSidebar(false)} />
-                <NavLink href="/panel/setting" label="تنظیمات" icon={<SettingSvg />} onClick={() => setIsShowSidebar(false)} />
-                <NavLink href="/" label="خروج" icon={<LogoutSvg />} onClick={logoutHandler} />
+                <NavLink href="/panel" label={t('menu.main')} icon={<HomeSvg />} onClick={() => setIsShowSidebar(false)} />
+                <NavLink href="/panel/profile" label={t('menu.profile')} icon={<UserSvg />} onClick={() => setIsShowSidebar(false)} />
+                <NavLink href="/panel/setting" label={t('menu.setting')} icon={<SettingSvg />} onClick={() => setIsShowSidebar(false)} />
+                <NavLink href="/" label={t('menu.logout')} icon={<LogoutSvg />} onClick={logoutHandler} />
             </div>
         </aside>
     )

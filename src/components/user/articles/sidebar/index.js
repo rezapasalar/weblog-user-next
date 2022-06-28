@@ -1,11 +1,11 @@
-import Kind from './kind'
-import Categories from './categories'
+import ArticleType from './type'
+import ArticleCategory from './categories'
 
 export default function Sidebar () {
     return (
         <div className="space-y-6">
-            <Kind />
-            <Categories />
+            <ArticleType />
+            <ArticleCategory />
         </div>
     )
 }

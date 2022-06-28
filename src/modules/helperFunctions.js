@@ -4,7 +4,7 @@ export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-export const convertDateToPersianDate = (date) => new Date(date).toLocaleDateString('fa-IR', {day: "numeric", month: "long", year: "numeric"})
+export const convertDateToPersianDate = (date, locale = 'fa-IR') => new Date(date).toLocaleDateString(locale, {day: "numeric", month: "long", year: "numeric"})
 
 const convertLocaleDigits = (value, input = 'fa', output = 'en') => {
     const locales = {fa: ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'], en: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}

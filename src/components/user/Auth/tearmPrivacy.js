@@ -1,13 +1,18 @@
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 
 export default function TearmPrivacy () {
+
+    const {t, i18n: {language}} = useTranslation()
+
     return (
         <div className="flex justify-center text-xs text-gray-400 py-3">
-            <span>ورود یا ثبت نام شما به معنای پذیرش</span>
-            <Link href="/terms"><a className="mx-1 text-indigo-600">شرایط</a></Link>
-            <span>و</span>
-            <Link href="/privacy"><a className="mx-1 text-indigo-600">قوانین حریم خصوصی</a></Link>
-            <span>است</span>
+
+            <span>{t('loginAndRegisterPage.accept')}</span>
+            <Link href="/terms"><a className="mx-1 text-indigo-600">{t('menu.terms')}</a></Link>
+            <span>{t('loginAndRegisterPage.and')}</span>
+            <Link href="/privacy"><a className="mx-1 text-indigo-600">{t('menu.privacy')}</a></Link>
+            <span>{language === 'fa' && 'است'}</span>
         </div>
     )
 }

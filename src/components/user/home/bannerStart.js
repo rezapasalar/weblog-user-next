@@ -1,12 +1,16 @@
+import { useTranslation } from 'react-i18next'
 import Button from '../../../components/global/elements/button'
 import LogoSvg from '../../../components/global/svg/logo'
 
 export default function BannerStart () {
+
+    const {t} = useTranslation()
+
     return (
         <div className="grid lg:grid-cols-2 items-center gap-5 overflow-hidden px-6">
             <div className="relative mx-auto text-center w-3/4 lg:w-2/3 space-y-6 sm:mb-0 mb-5">
-                <p className="text-gray-500 dark:text-gray-100 text-3xl lg:text-4xl font-extrabold">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</p>
-                <Button>دانلود اپلیکیشن</Button>
+                <p className="text-gray-500 dark:text-gray-100 text-3xl lg:text-4xl font-extrabold">{t('homePage.bannerStart.message')}</p>
+                <Button>{t('homePage.bannerStart.button')}</Button>
             </div>
             
             <div className="relative text-center flex justify-center">

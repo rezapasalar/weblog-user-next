@@ -1,23 +1,21 @@
 import { object, string } from 'yup'
 import { messages, transfer } from '.'
 
-const {email} = messages
-
 export const initialData = {
     email: 'mitra@yahoo.com',
     password: '11111111'
 }
 
-export const loginSchema = () => { 
+export const loginSchema = (language = 'fa') => { 
     return object({
         email:
             string()
-            .required(transfer('required', 'email'))
-            .email(email)
+            .required(transfer({rule: 'required', field: 'email', language}))
+            .email(messages[language]['email'])
         ,password:
             string()
-            .required(transfer('required', 'password'))
-            .min(8, transfer('min', 'password', 8))
-            .max(32, transfer('max', 'password', 32))
+            .required(transfer({rule: 'required', field: 'password', language}))
+            .min(8, transfer({rule: 'min', field: 'password', value: 8, language}))
+            .max(32, transfer({rule: 'max', field: 'password', value: 32, language}))
     })
 }

@@ -1,8 +1,12 @@
+import { useTranslation } from 'react-i18next'
 import DarkMode from './darkMode'
 
 export default function Hamburger ({isShowMenu, setIsShowMenu}) {
+
+    const {i18n: {language}} = useTranslation()
+
     return (
-        <div className="flex items-center lg:hidden space-x-reverse space-x-2">
+        <div className={`flex items-center lg:hidden ${language === 'fa' && 'space-x-reverse'} space-x-2`}>
             <div className="flex items-center">
                 <DarkMode />
             </div>

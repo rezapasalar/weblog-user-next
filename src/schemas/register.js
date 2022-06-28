@@ -2,8 +2,6 @@ import { object, string, ref } from 'yup'
 import { messages, transfer } from '.'
 import { searchUserService } from '../services/users'
 
-const {email, confirmed} = messages
-
 export const initialData = {
     is_admin: 0,
     name: '',
@@ -16,29 +14,29 @@ export const initialData = {
     passwordConfirmation: ''
 }
 
-export const registerSchema = () => { 
+export const registerSchema = (language = 'fa') => { 
     return object({
         name: 
             string()
-            .required(transfer('required', 'name'))
+            .required(transfer({rule: 'required', field: 'name', language}))
         ,family:
             string()
-            .required(transfer('required', 'family'))
+            .required(transfer({rule: 'required', field: 'family', language}))
         ,day: 
             string()
-            .required(transfer('required', 'day'))
+            .required(transfer({rule: 'required', field: 'day', language}))
         ,month: 
             string()
-            .required(transfer('required', 'month'))
+            .required(transfer({rule: 'required', field: 'month', language}))
         ,year: 
             string()
-            .required(transfer('required', 'year'))
+            .required(transfer({rule: 'required', field: 'year', language}))
         ,email:
             string()
-            .required(transfer('required', 'email'))
-            .email(email)
+            .required(transfer({rule: 'required', field: 'email', language}))
+            .email(messages[language]['email'])
             .test({
-                message: () => transfer('duplicate', 'email'),
+                message: () => transfer({rule: 'duplicate', field: 'email', language}),
                 test: async (email, {parent: {id}}) => {
                     const {data: {data}} = await searchUserService('email', email)
                     return data.length && data[0].id !== id ? false : true
@@ -46,11 +44,11 @@ export const registerSchema = () => {
             })
         ,password:
             string()
-            .required(transfer('required', 'password'))
-            .min(8, transfer('min', 'password', 8))
-            .max(32, transfer('max', 'password', 32))
+            .required(transfer({rule: 'required', field: 'password', language}))
+            .min(8, transfer({rule: 'min', field: 'password', value: 8, language}))
+            .max(32, transfer({rule: 'max', field: 'password', value: 32, language}))
         ,passwordConfirmation:
             string()
-            .oneOf([ref('password'), null], confirmed)
+            .oneOf([ref('password'), null], messages[language]['confirmed'])
     })
 }

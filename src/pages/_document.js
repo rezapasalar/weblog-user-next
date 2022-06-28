@@ -1,8 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
-export default function Document () {
+export default function Document ({locale}) {
+
     return (
-        <Html dir="rtl">
+        <Html dir={`${locale === 'fa' ? 'rtl' : 'ltr'}`}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -12,4 +13,8 @@ export default function Document () {
             </body>
         </Html>
     )
+}
+
+export function getInitialProps({locale}) {
+    return { locale: locale || 'fa' }
 }

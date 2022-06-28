@@ -3,7 +3,6 @@ import { getCurrentPersianYear } from '../modules/helperFunctions'
 import { messages, transfer } from '.'
 import { searchUserService } from '../services/users'
 
-const {integer, email} = messages
 const currentYear = Number(getCurrentPersianYear('en'))
 
 export const initialData = {
@@ -18,42 +17,37 @@ export const initialData = {
     email: '', 
 }
 
-export const profileSchema = () => { 
+export const profileSchema = (language = 'fa') => { 
     return object({
         name: 
             string()
-            .required(transfer('required', 'name'))
+            .required(transfer({rule: 'required', field: 'name', language}))
         ,family:
             string()
-            .required(transfer('required', 'family'))
+            .required(transfer({rule: 'required', field: 'family', language}))
         ,day: 
-            number()
-            .typeError(transfer('integer', 'name'))
-            .required(transfer('required', 'day'))
-            .min(1, transfer('min', 'day', 1))
-            .max(31, transfer('max', 'day', 31))
+            string()
+            .required(transfer({rule: 'required', field: 'day', language}))
         ,month: 
             string()
-            .required(transfer('required', 'month'))
+            .required(transfer({rule: 'required', field: 'month', language}))
         ,year: 
-            number(integer)
-            .required(transfer('required', 'year'))
-            .min(1330, transfer('min', 'year', 1330))
-            .max(currentYear, transfer('max', 'year', currentYear))
+            string()
+            .required(transfer({rule: 'required', field: 'year', language}))
         ,code:
             string()
-            .required(transfer('required', 'code'))
-            .length(10, transfer('length', 'code', 10))
+            .required(transfer({rule: 'required', field: 'code', language}))
+            .length(10, transfer({rule: 'length', field: 'code', value: 10, language}))
         ,mobile:
             string()
-            .required(transfer('required', 'code'))
-            .length(11, transfer('length', 'mobile', 11))
+            .required(transfer({rule: 'required', field: 'mobile', language}))
+            .length(11, transfer({rule: 'length', field: 'mobile', value: 11, language}))
         ,email:
             string()
-            .required(transfer('required', 'email'))
-            .email(email)
+            .required(transfer({rule: 'required', field: 'email', language}))
+            .email(messages[language]['email'])
             .test({
-                message: () => transfer('duplicate', 'email'),
+                message: () => transfer({rule: 'duplicate', field: 'email', language}),
                 test: async (email, {parent: {id}}) => {
                     const {data: {data}} = await searchUserService('email', email)
                     return data.length && data[0].id !== id ? false : true
