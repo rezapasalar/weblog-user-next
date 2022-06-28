@@ -52,5 +52,3 @@ export default function Articles () {
         </PageWrap>
     )
 }
-
-Articles.existInLayout = ['sidebar']

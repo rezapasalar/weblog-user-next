@@ -9,7 +9,7 @@ export default function LoginRegister ({to = 'login'}) {
 
     return (
         <div className={`flex justify-center text-sm text-gray-400 text-center ${language === 'fa' && 'space-x-reverse'} space-x-1 mt-4`}>
-            <span>{t('loginAndRegisterPage.switch')}</span>
+            <span>{t('authPages.switch')}</span>
             <span onClick={() => router.push(`/auth/${to === 'login' ? 'login' : 'register'}`)} className="text-indigo-600 cursor-pointer">{t(`menu.${to}`)}</span>
         </div>
     )

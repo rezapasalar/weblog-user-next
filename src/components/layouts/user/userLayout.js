@@ -2,7 +2,7 @@ import Navbar from './sections/navbar'
 import Footer from './sections/footer'
 import ScrollTop from './sections/scrollTop'
 
-export default function userLayout ({children, existInLayout = []}) {
+export default function userLayout ({children}) {
     return (
         <div className="min-h-screen bg-gray-100 my-slow-motion overflow-y-hidden">
             <Navbar />
