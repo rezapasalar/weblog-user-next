@@ -1,5 +1,5 @@
 export default {
-    home: 'خانه',
+    home: 'صفحه اصلی',
     articles: 'مقالات',
     aboutUs: 'درباره ما',
     contactUs: 'ارتباط با ما',
