@@ -1,6 +1,7 @@
 import axios from 'axios'
+import configApp from '../config/app'
 
-const baseURL = 'https://6284ab5d6b6c317d5ba7737c.endapi.io'
+const baseURL = configApp.baseURL
 
 const instance = axios.create({baseURL, timeout: 5000})
 

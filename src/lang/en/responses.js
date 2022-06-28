@@ -10,4 +10,7 @@ export default {
     successfulLogin: 'Login successfully',
     successfulLogout: 'Logged out successfully ',
     successfulSave: 'User information saved',
+    serverError: 'An error occurred. Please try again',
+    noArticle: 'No such article was found',
+    
 }

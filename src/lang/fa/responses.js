@@ -10,4 +10,6 @@ export default {
     successfulLogin: 'ورود با موفقیت انجام شد',
     successfulLogout: 'با موفقیت خارج شدید',
     successfulSave: 'اطلاعات کاربری ذخیره شد',
+    serverError: 'خطایی رخ داده, مجدد تلاش کنید',
+    noArticle: 'چنین مقاله ای یافت نشد',
 }
