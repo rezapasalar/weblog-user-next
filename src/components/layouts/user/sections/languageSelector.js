@@ -22,7 +22,7 @@ export default function LanguageSelector () {
                         {
                             locale !== l &&
                                 <Link href={asPath} locale={l}>
-                                    <a onClick={() => changeLanguage(l)} className="inline-block h-6 w-[1.6rem] bg-indigo-600 text-white rounded-md border pt-[.05rem] mt-[.1rem] text-center">{l.toUpperCase()}</a>
+                                    <a onClick={() => changeLanguage(l)} className="inline-block h-6 w-[1.6rem] bg-indigo-600 text-white rounded-md pt-[.05rem] mt-[.1rem] text-center">{l.toUpperCase()}</a>
                                 </Link>  
                         }
                     </div>
