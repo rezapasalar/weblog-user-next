@@ -16,6 +16,8 @@ export default function ListArticles () {
 
     const {t, i18n: {language}} = useTranslation()
 
+    const isLanguageFA = () => language === 'fa'
+
     return (
         <>
             <div className="grid lg:grid-cols-24 grid-cols-12 gap-6">
@@ -29,9 +31,9 @@ export default function ListArticles () {
                             {
                                 isLoading 
                                     ? 
-                                        <div className={`flex items-center ${language === 'fa' && 'space-x-reverse'} space-x-2`}><SimpleLoading /><span>{t('responses.receivingInfo')}</span></div> 
+                                        <div className={`flex items-center ${isLanguageFA() && 'space-x-reverse'} space-x-2`}><SimpleLoading /><span>{t('responses.receivingInfo')}</span></div> 
                                     :   
-                                        <div className="flex space-x-reverse space-x-2">
+                                        <div className={`flex ${isLanguageFA() && 'space-x-reverse'} space-x-2`}>
                                             <span>{t('responses.emptyData')}</span>
                                             <RefreshSvg onClick={() => router.reload()} className="h-6 w-6 text-indigo-500 cursor-pointer" />
                                         </div>

@@ -11,7 +11,7 @@ const convertLocaleDigits = (value, input = 'fa', output = 'en') => {
     return (value.split('').map(item => locales[output][locales[input].findIndex(i => i === item)])).join('')
 }
 
-export const timestampToPersianDate = (timestamp) => convertDateToPersianDate(timestamp)
+export const timestampToPersianDate = (timestamp, locale = 'fa-IR') => convertDateToPersianDate(timestamp, locale)
 
 export const getCurrentPersianYear = (digit = 'fa') => digit === 'fa' ? convertDateToPersianDate(Date.now()).split(' ')[2] : convertLocaleDigits(convertDateToPersianDate(Date.now()).split(' ')[2])
 
