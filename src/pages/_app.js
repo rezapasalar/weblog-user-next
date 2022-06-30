@@ -16,15 +16,15 @@ export default function MyApp ({Component, pageProps}) {
 
     const {isAnimating} = useProgress()
 
-    const {i18n} = useTranslation()
+    const {i18n: {language, changeLanguage}} = useTranslation()
 
     const {locale} = useRouter()
 
     useEffect(() => {
-        i18n.changeLanguage(locale)
+        changeLanguage(locale)
     }, [])
 
-    const isLanguageFA = () => i18n.language === 'fa'
+    const isLanguageFA = () => language === 'fa'
 
     const getLayout = page => {
         switch (Component.layout) {

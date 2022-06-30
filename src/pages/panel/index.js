@@ -18,7 +18,7 @@ export default function Panel () {
                 <div className="flex justify-between items-center text-gray-400 bg-gray-100 dark:bg-gray-900 border dark:border-0 border-gray-200 px-3 py-5 rounded-lg">
                     <div>
                         <div className="text-lg font-semibold mb-2">{t('panel.mainPage.inventory')}</div>
-                        <div className="text-gray-500 dark:text-gray-200 text-center text-2xl font-bold">{language === 'fa' ? Number(1255).toLocaleString('fa-IR') : 1255}</div>
+                        <div className="text-gray-500 dark:text-gray-200 text-center text-2xl font-bold">{Number(1255).toLocaleString(language)}</div>
                     </div>
                     
                     <DollarSvg className="h-7 w-7 text-green-600" />
@@ -27,7 +27,7 @@ export default function Panel () {
                 <div className="flex justify-between items-center text-gray-400 bg-gray-100 dark:bg-gray-900 border dark:border-0 border-gray-200 px-3 py-5 rounded-lg">
                     <div>
                         <div className="text-lg font-semibold mb-2">{t('panel.mainPage.score')}</div>
-                        <div className="text-gray-500 dark:text-gray-200 text-center text-2xl font-bold">{language === 'fa' ? Number(3781).toLocaleString('fa-IR') : 3781}</div>
+                        <div className="text-gray-500 dark:text-gray-200 text-center text-2xl font-bold">{Number(3781).toLocaleString(language)}</div>
                     </div>
                     
                     <StarSvg className="h-7 w-7 text-yellow-500" />
@@ -36,7 +36,7 @@ export default function Panel () {
                 <div className="flex justify-between items-center text-gray-400 bg-gray-100 dark:bg-gray-900 border dark:border-0 border-gray-200 px-3 py-5 rounded-lg">
                     <div>
                         <div className="text-lg font-semibold mb-2">{t('panel.mainPage.todos')}</div>
-                        <div className="text-gray-500 dark:text-gray-200 text-center text-2xl font-bold">{language === 'fa' ? Number(1302).toLocaleString('fa-IR') : 1302}</div>
+                        <div className="text-gray-500 dark:text-gray-200 text-center text-2xl font-bold">{Number(1302).toLocaleString(language)}</div>
                     </div>
                     
                     <ListSvg className="h-7 w-7 text-purple-600" />
