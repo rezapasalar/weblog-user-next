@@ -6,7 +6,7 @@ export default function LanguageSelector () {
 
     const {i18n: {language, changeLanguage}} = useTranslation()
 
-    const {locale, locales, asPath} = useRouter();
+    const {locale, locales, asPath} = useRouter()
 
     const changeLang = (lng) => {
         changeLanguage(lng)
