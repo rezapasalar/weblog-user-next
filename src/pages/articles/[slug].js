@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import { useTranslation } from 'react-i18next'
+
 import { searchArticleServiceWithFetch } from '../../services/articles'
-import ShowArticle from '../../components/user/singleArticle/show'
-import Sidebar from '../../components/user/singleArticle/sidebar'
-import Comment from '../../components/user/singleArticle/comment'
+import ErrorBoundary from '../../components/user/single-article/errorBoundary'
+import ShowArticle from '../../components/user/single-article/show'
+import Sidebar from '../../components/user/single-article/sidebar'
+import Comment from '../../components/user/single-article/comment'
 import PageWrap from '../../components/global/wraps/page'
-import ErrorBoundary from '../../components/user/singleArticle/errorBoundary'
 
 export default function SingleArticle ({article = null, isError = false}) {
 
@@ -29,7 +30,7 @@ export default function SingleArticle ({article = null, isError = false}) {
                             ?   <ErrorBoundary isError={isError} />
                             :
                                 <>
-                                    <ShowArticle article={article} />
+                                    <ShowArticle {...article} />
                                     <Comment />
                                 </>
                     }

@@ -8,6 +8,7 @@ import fields from './fields'
 import responses from './responses'
 import layout from './layout'
 import panel from './panel'
+import pagination from './pagination'
 
 export default {
     translation: {
@@ -20,6 +21,7 @@ export default {
         fields,
         responses,
         layout,
-        panel
+        panel,
+        pagination
     }
 }

@@ -7,7 +7,6 @@ export default function TearmPrivacy () {
 
     return (
         <div className="flex justify-center text-xs text-gray-400 py-3">
-
             <span>{t('authPages.accept')}</span>
             <Link href="/terms"><a className="mx-1 text-indigo-600">{t('menu.terms')}</a></Link>
             <span>{t('authPages.and')}</span>

@@ -11,7 +11,7 @@ export const updateArticleService = async data => await axios.put(`${route}/${da
 
 export const deleteArticleService = async articleId => await axios.delete(`${route}/${articleId}`)
 
-export const getArticlesService = async (page = 1, filter = null, sort = 'createdAt:-1') => await axios.get(`${route}?page=${page}${filter ? `&filter=${filter}` : ''}&sort=${sort}`)
+export const getArticlesService = async (page = 1, filter = null, sort = 'createdAt:-1') => await axios.get(`${route}?page=${page}${filter && `&filter=${filter}`}&sort=${sort}`)
 
 export const searchArticleService = async (key, value) => await axios.get(`${route}?search=${key}:${value}`)
 
@@ -21,6 +21,6 @@ export const searchArticleServiceWithFetch = async (key, value) => {
 }
 
 export const getArticlesServiceFetch = async (page = 1, filter = null, sort = 'createdAt:-1') => {
-    const res = await fetch(`${baseURL}${route}?page=${page}${filter ? `&filter=${filter}` : ''}&sort=${sort}`)
+    const res = await fetch(`${baseURL}${route}?page=${page}${filter && `&filter=${filter}`}&sort=${sort}`)
     return await res.json()
 }

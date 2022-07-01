@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Head from 'next/head'
 import { useTranslation } from 'react-i18next'
+
 import { setArticles } from '../../store/slices/articles'
 import { setIsLoading } from '../../store/slices/global'
 import ListArticles from '../../components/user/articles/list'

@@ -2,23 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+
 import DropDownItem from './item'
 import { getTheme } from '../../../../../modules/helperFunctions'
 import { LoginSvg, RegisterSvg, LogoutSvg, UserSvg, SettingSvg, MoreSvg } from '../../../../global/svg'
 
-export default function DropDown () {
+export default function Dropdown () {
 
     const router = useRouter()
     
     const [isShow, setIsShow] = useState(false)
 
-    const dropDownRef = useRef(null)
+    const dropdownRef = useRef(null)
 
     const {t, i18n: {language}} = useTranslation()
 
     const isLanguageFA = () => language === 'fa'
 
-    const clickOutsideHandler = ({target}) => dropDownRef.current && !dropDownRef.current.contains(target) ? setIsShow(false) : null
+    const clickOutsideHandler = ({target}) => dropdownRef.current && !dropdownRef.current.contains(target) && setIsShow(false)
 
     useEffect(() => {
         document.addEventListener("mousedown", clickOutsideHandler)
@@ -41,7 +42,7 @@ export default function DropDown () {
     }
 
     return (
-        <div ref={dropDownRef} className="relative z-50">
+        <div ref={dropdownRef} className="relative z-50">
 
             <MoreSvg onClick={() => setIsShow(!isShow)} className={`${isLanguageFA() ? '-ml-2' : '-mr-2'} h-[1.4rem] w-[1.4rem] text-gray-500 dark:text-gray-100 cursor-pointer`} />
 

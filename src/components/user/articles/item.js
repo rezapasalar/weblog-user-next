@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
+
 import { timestampToPersianDate, random } from '../../../modules/helperFunctions'
 import { Card, ImgCard, TitleCard, BodyCard, FooterCard } from '../../global/card'
 import { CommentSvg, LikeSvg, DisLikeSvg, CalenderSvg } from '../../global/svg'
@@ -43,3 +44,4 @@ export default function ItemArticles ({id, title, description, slug, created_at}
         </Card>
     )
 }
+

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import useForm from '../../hooks/useForm'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
+
 import { initialData, registerSchema } from '../../schemas/register'
 import { ColumnGridWrap, InputForm, DateBirthForm, ButtonLoading } from '../../components/global/form'
 import TitleForm from '../../components/user/auth/titleForm'

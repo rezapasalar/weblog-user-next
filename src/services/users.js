@@ -6,7 +6,7 @@ export const createUserService = async data => await axios.post(route, filterPas
 
 export const updateUserService = async data => await axios.put(`${route}/${data.id}`, data)
 
-export const getUsersService = async (page = 1, filter = null, sort = 'createdAt:-1') => await axios.get(`${route}?page=${page}${filter ? `&filter=${filter}` : ''}&sort=${sort}`)
+export const getUsersService = async (page = 1, filter = null, sort = 'createdAt:-1') => await axios.get(`${route}?page=${page}${filter && `&filter=${filter}`}&sort=${sort}`)
 
 export const searchUserService = async (key, value) => await axios.get(`${route}?search=${key}:${value}`)
 

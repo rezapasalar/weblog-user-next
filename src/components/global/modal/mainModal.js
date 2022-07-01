@@ -22,9 +22,9 @@ export default function MainModal ({size = 'md', children, modalStatus, cancelHa
 
     const setSize = () => size === 'sm' ? 'sm:max-w-2xl' : size === 'md' ? 'sm:max-w-4xl' : 'sm:max-w-5xl'
 
-    const closeModalFormWithESC = e => e.keyCode === 27 ? cancelHandler() : null
+    const closeModalFormWithESC = e => e.keyCode === 27 && cancelHandler()
 
-    const backdropHandler = ({target: {id}}) => backdrop && (id === 'modalId' || id === 'contentId') ? cancelHandler() : null
+    const backdropHandler = ({target: {id}}) => backdrop && (id === 'modalId' || id === 'contentId') && cancelHandler()
 
     return (
         <div id="modalId" onClick={backdropHandler} ref={modalRef} className={`${modalStatus ? 'block' : 'hidden'} fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-[999] bg-gray-500/75`}>

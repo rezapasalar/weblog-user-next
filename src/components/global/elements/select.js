@@ -5,7 +5,7 @@ export default function SelectElement ({value, options, onChange, placeholder = 
             onChange={onChange}
             className="w-full mt-1 p-[.66rem] rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-100 border dark:border-0 border-gray-300 focus:ring-2 focus:outline-none"
         >
-            {placeholder ? <option value="" disabled className="text-gray-300">{placeholder}</option> : null}
+            {placeholder && <option value="" disabled className="text-gray-300">{placeholder}</option>}
             {options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
         </select>
     )

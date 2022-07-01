@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import SimpleNavLink from './navLinks/simple'
+import SimpleNavLink from './nav-links/simple'
 
 export default function Navigation ({isShowMenu, setIsShowMenu}) {
 

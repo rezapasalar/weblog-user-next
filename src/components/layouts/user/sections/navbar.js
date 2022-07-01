@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+
 import Brand from './brand'
 import Navigation from './navigation'
 import DarkMode from './darkMode'
 import Hamburger from './hamburger'
-import DropDown from './dropDown'
+import Dropdown from './dropdown'
 import LanguageSelector from './languageSelector'
 
 export default function Navbar () {
 
     const [isShowMenu, setIsShowMenu] = useState(false)
 
-    const {t, i18n: {language}} = useTranslation()
+    const {i18n: {language}} = useTranslation()
 
     return (
         <nav className="bg-gray-50 dark:bg-gray-800 py-2 lg:py-0">
@@ -28,7 +29,7 @@ export default function Navbar () {
                         <div className={`hidden lg:flex justif items-center ${language === 'fa' && 'space-x-reverse'} space-x-2`}>
                             <LanguageSelector />
                             <DarkMode />
-                            <DropDown />
+                            <Dropdown />
                         </div>
                     </div>
                 </div>

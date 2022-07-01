@@ -4,7 +4,7 @@ export default {
     successfulRemoval: 'حذف با موفقیت انجام شد',
     emptyData: 'دیتایی یافت نشد',
     axiosError: 'خطایی رخ داده است',
-    receivingInfo: 'در حال دریافت اطلاعات',
+    receivingInfo: 'در حال دریافت مقالات',
     noComment: 'هنوز دیدگاهی ثبت نشده',
     successfulRegistration: 'ثبت نام با موفقیت انجام شد',
     successfulLogin: 'ورود با موفقیت انجام شد',
@@ -12,4 +12,5 @@ export default {
     successfulSave: 'اطلاعات کاربری ذخیره شد',
     serverError: 'خطایی رخ داده, مجدد تلاش کنید',
     noArticle: 'چنین مقاله ای یافت نشد',
+    pleaseWait: 'لطفا صبر کنید'
 }

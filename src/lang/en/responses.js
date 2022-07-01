@@ -4,7 +4,7 @@ export default {
     successfulRemoval: 'Deletion successfully',
     emptyData: 'No data found',
     axiosError: 'An error has occurred',
-    receivingInfo: 'Receiving information',
+    receivingInfo: 'Receiving articles',
     noComment: 'No comments have been posted yet',
     successfulRegistration: 'Registration successfully',
     successfulLogin: 'Login successfully',
@@ -12,5 +12,6 @@ export default {
     successfulSave: 'User information saved',
     serverError: 'An error occurred. Please try again',
     noArticle: 'No such article was found',
+    pleaseWait: 'Please Wait'
     
 }

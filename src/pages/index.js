@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useTranslation } from 'react-i18next'
+
 import PageWrap from '../components/global/wraps/page'
 import BannerStart from '../components/user/home/bannerStart'
 import Description from '../components/user/home/description'
