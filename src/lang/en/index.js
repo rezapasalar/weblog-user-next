@@ -9,6 +9,7 @@ import responses from './responses'
 import layout from './layout'
 import panel from './panel'
 import pagination from './pagination'
+import errors from './errors'
 
 export default {
     translation: {
@@ -22,6 +23,7 @@ export default {
         responses,
         layout,
         panel,
-        pagination
+        pagination,
+        errors
     }
 }

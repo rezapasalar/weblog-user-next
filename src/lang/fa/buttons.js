@@ -5,5 +5,6 @@ export default {
     login: 'ورود',
     save: 'ذخیره',
     cancel: 'انصراف',
-    post: 'ثبت دیدگاه'
+    post: 'ثبت دیدگاه',
+    backToHome: 'بازگشت به خانه'
 }

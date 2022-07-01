@@ -12,6 +12,5 @@ export default {
     successfulSave: 'User information saved',
     serverError: 'An error occurred. Please try again',
     noArticle: 'No such article was found',
-    pleaseWait: 'Please Wait'
-    
+    pleaseWait: 'Please Wait',
 }

@@ -5,5 +5,6 @@ export default {
     login: 'Login',
     save: 'Save',
     cancel: 'Cancel',
-    post: 'Post'
+    post: 'Post',
+    backToHome: 'Back To Home'
 }

@@ -1,8 +1,10 @@
 export default function Label ({text, alert = null}) {
 
     const styles = {
+        primary: 'bg-infigo-600',
         success : 'bg-green-600',
         danger: 'bg-red-600',
+        warning: 'bg-orange-600',
     }
 
     return (
