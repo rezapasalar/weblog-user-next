@@ -1,4 +1,7 @@
-export default function Button ({children, onClick = null, type = 'button', size = 'lg', variant = 'primary', outline = false , widthFull = false, disabled = '', className: classes = ''}) {
+import { memo } from 'react'
+import PropTypes from 'prop-types'
+
+function Button ({children, label = '', type = 'button', size = 'lg', variant = 'primary', outline = false , widthFull = false, disabled = '', onClick = null, className: classes = ''}) {
 
     const sizes = {
         xs : 'text-xs px-2 py-1',
@@ -34,7 +37,21 @@ export default function Button ({children, onClick = null, type = 'button', size
             type={type} 
             className={`${styles[outline ? 'outline' : 'fill'][variant]} ${sizes[size]} ${widthFull && 'w-full'} focus:outline-none text-white rounded-lg duration-300 select-none ${classes}`}
         >
-            {children}
+            {children || label}
         </button>
     )
 }
+
+Button.propTypes = {
+    children: PropTypes.any,
+    type: PropTypes.string,
+    size: PropTypes.string,
+    variant: PropTypes.string,
+    outline: PropTypes.bool,
+    widthFull: PropTypes.bool,
+    disabled: PropTypes.any,
+    onClick: PropTypes.func,
+    className: PropTypes.string
+}
+
+export default memo(Button)

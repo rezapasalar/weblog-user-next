@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function DropDownItem ({children, position = 'center', onClick}) {
+export default memo(function MoreItem ({children, position = 'center', onClick}) {
 
     const {i18n: {language}} = useTranslation()
 
@@ -9,4 +10,4 @@ export default function DropDownItem ({children, position = 'center', onClick}) 
             {children}
         </div>
     )
-}
+})

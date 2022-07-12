@@ -1,4 +1,6 @@
-export default function WrapSidebar ({children, title = null, spaceY = 'on', px = 'on'}) {
+import { memo } from 'react'
+
+export default memo(function WrapSidebar ({children, title = null, spaceY = 'on', px = 'on'}) {
     return (
         <div className={`bg-white dark:bg-gray-800 md:rounded-xl text-gray-500 dark:text-gray-300 shadow-md py-8 ${px === 'on' && 'px-5'}`}>
             {title && <div className={`text-gray-500 dark:text-gray-100 text-xl font-bold pb-5 ${px !== 'on' && 'px-5'}`}>{title}</div>}
@@ -7,4 +9,4 @@ export default function WrapSidebar ({children, title = null, spaceY = 'on', px 
             </div>
         </div>
     )
-}
+})

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 
@@ -7,7 +8,7 @@ import Notification from '../../user/sections/notification'
 import { convertDateToPersianDate } from '../../../../modules/helperFunctions'
 import LanguageSelector from '../../user/sections/languageSelector'
 
-export default function Header ({setIsShowSidebar}) {
+export default memo(function Header ({setIsShowSidebar}) {
 
     const {t, i18n: {language}} = useTranslation()
 
@@ -30,4 +31,4 @@ export default function Header ({setIsShowSidebar}) {
             </div>
         </header>
     )
-}
+})

@@ -1,4 +1,6 @@
-export default function ColumnGridWrap ({children, cols = '2', gap = '6', responsive = 'on' , className: classes = ''}) {
+import { memo } from 'react'
+
+export default memo(function ColumnGridWrap ({children, cols = '2', gap = '6', responsive = 'on' , className: classes = ''}) {
 
     const gridCols = {
         responsive : {
@@ -30,4 +32,4 @@ export default function ColumnGridWrap ({children, cols = '2', gap = '6', respon
             {children}
         </div>
     )
-}
+})

@@ -1,10 +1,35 @@
+import { memo } from 'react'
+import PropTypes from 'prop-types'
+
 import GroupForm from './group'
 import InputElement from '../elements/input'
 
-export default function InputForm ({label = '', keyname, inputHandler, value = '', error = '', type = 'text', dir = 'rtl', placeholder = '', disabled = false, alert = null}) {
+function InputForm ({label, type = 'string', value, keyname, error, disabled = false, placeholder = null, inputHandler, dir = 'rtl', alert = null}) {
     return (
         <GroupForm label={label} error={error} alert={alert}>
-            <InputElement disabled={disabled} type={type} dir={dir} value={value} onChange={({target: {value}}) => inputHandler(keyname, value)} placeholder={placeholder} />
+            <InputElement 
+                type={type}
+                value={value}
+                disabled={disabled}
+                placeholder={placeholder}
+                dir={dir}
+                onChange={({target: {value}}) => inputHandler(keyname, value)}
+            />
         </GroupForm>
     )
 }
+
+InputForm.propTypes = {
+    label: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.any.isRequired,
+    keyname: PropTypes.string.isRequired,
+    error: PropTypes.string,
+    disabled: PropTypes.bool,
+    placeholder: PropTypes.string,
+    inputHandler: PropTypes.func.isRequired,
+    dir: PropTypes.string,
+    alert: PropTypes.string
+}
+
+export default memo(InputForm)

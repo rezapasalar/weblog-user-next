@@ -25,20 +25,18 @@ export default function ListArticles () {
                 {articles.map(article => <ItemArticles key={article.id} {...article} />)}
             </div>
             
-            {
-                !articles.length &&
-                    <Alert>
-                        {
-                            isLoading 
-                                ? 
-                                    <div className={`flex items-center ${isLanguageFA() && 'space-x-reverse'} space-x-2`}><SimpleLoading /><span>{t('responses.receivingInfo')}</span></div> 
-                                :   
-                                    <div className={`flex ${isLanguageFA() && 'space-x-reverse'} space-x-2`}>
-                                        <span>{t('responses.emptyData')}</span>
-                                        <RefreshSvg onClick={() => router.reload()} className="h-6 w-6 text-indigo-500 cursor-pointer" />
-                                    </div>
-                        }
-                    </Alert> 
+            {!articles.length &&
+                <Alert>
+                    {isLoading 
+                        ? 
+                            <div className={`flex items-center ${isLanguageFA() && 'space-x-reverse'} space-x-2`}><SimpleLoading /><span>{t('responses.receivingInfo')}</span></div> 
+                        :   
+                            <div className={`flex ${isLanguageFA() && 'space-x-reverse'} space-x-2`}>
+                                <span>{t('responses.emptyData')}</span>
+                                <RefreshSvg onClick={() => router.reload()} className="h-6 w-6 text-indigo-500 cursor-pointer" />
+                            </div>
+                    }
+                </Alert> 
             }
         </>
     )

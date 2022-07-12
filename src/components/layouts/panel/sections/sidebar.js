@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
 
@@ -7,11 +8,12 @@ import NavLink from './navLink'
 import { HomeSvg, UserSvg, SettingSvg, LogoutSvg, CloseSvg } from '../../../global/svg'
 import { getTheme } from '../../../../modules/helperFunctions'
 
-export default function Sidebar ({setIsShowSidebar}) {
+export default memo(function Sidebar ({setIsShowSidebar}) {
 
     const {t} = useTranslation()
 
     const logoutHandler = () => {
+        localStorage.removeItem('isAuth')
         toast.success(t('responses.successfulLogout'), {...getTheme()})
     }
 
@@ -32,4 +34,4 @@ export default function Sidebar ({setIsShowSidebar}) {
             </div>
         </aside>
     )
-}
+})

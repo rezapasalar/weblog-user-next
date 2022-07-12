@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
@@ -5,7 +6,7 @@ import { timestampToPersianDate, random } from '../../../modules/helperFunctions
 import { Card, ImgCard, TitleCard, BodyCard, FooterCard } from '../../global/card'
 import { CommentSvg, LikeSvg, DisLikeSvg, CalenderSvg } from '../../global/svg'
 
-export default function ItemArticles ({id, title, description, slug, created_at}) {
+export default memo(function ItemArticles ({id, title, description, slug, created_at}) {
 
     const router = useRouter()
 
@@ -13,7 +14,7 @@ export default function ItemArticles ({id, title, description, slug, created_at}
 
     const isLanguageFA = () => language === 'fa'
 
-    const showArticleHandler = () => router.push(`/articles/${slug}`)
+    const showArticleHandler = useCallback(() => router.push(`/articles/${slug}`), [])
 
     return (
         <Card>
@@ -21,7 +22,7 @@ export default function ItemArticles ({id, title, description, slug, created_at}
             
             <TitleCard onClick={showArticleHandler} text={isLanguageFA() ? title : t('articlesPage.title')} />
 
-            <BodyCard onClick={showArticleHandler} text={isLanguageFA() ? description : t('articlesPage.description')} />
+            <BodyCard text={isLanguageFA() ? description : t('articlesPage.description')} />
 
             <FooterCard>
                 <div className={`flex items-center ${isLanguageFA() && 'space-x-reverse'} space-x-1`}>
@@ -43,5 +44,4 @@ export default function ItemArticles ({id, title, description, slug, created_at}
             </FooterCard>
         </Card>
     )
-}
-
+})

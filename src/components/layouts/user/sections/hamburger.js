@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import DarkMode from './darkMode'
 
-export default function Hamburger ({isShowMenu, setIsShowMenu}) {
+export default memo(function Hamburger ({isShowMenu, setIsShowMenu}) {
 
     const {i18n: {language}} = useTranslation()
 
@@ -19,4 +20,4 @@ export default function Hamburger ({isShowMenu, setIsShowMenu}) {
             </button>
         </div>
     )
-}
+})

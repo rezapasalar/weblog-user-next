@@ -4,13 +4,6 @@ export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-export const createSlug = (str) => {
-    str = str.replace(/^\s+|\s+$/g, '')
-    str = str.toLowerCase()
-    str = str.replace(/[^a-z0-9_\s-ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]#u/, '').replace(/\s+/g, '-').replace(/-+/g, '-')
-    return str
-}
-
 const convertLocaleDigits = (value, input = 'fa', output = 'en') => {
     const locales = {fa: ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'], en: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
     return (value.split('').map(item => locales[output][locales[input].findIndex(i => i === item)])).join('')

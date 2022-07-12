@@ -1,8 +1,10 @@
+import { memo } from 'react'
+import PropTypes from 'prop-types'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { usePagination, DOTS } from './usePagination'
 
-export default function Pagination ({onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, filter = 'all'}) {
+function Pagination ({onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, filter = 'all'}) {
 
     const paginationRange = usePagination({currentPage, totalCount, siblingCount, pageSize})
 
@@ -60,3 +62,14 @@ export default function Pagination ({onPageChange, totalCount, siblingCount = 1,
         </ul>
     )
 }
+
+MainModal.propTypes = {
+    onPageChange: PropTypes.func.isRequired,
+    totalCount: PropTypes.number.isRequired,
+    siblingCount: PropTypes.number,
+    currentPage: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
+    filter: PropTypes.string
+}
+
+export default memo(Pagination)

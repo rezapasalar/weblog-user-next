@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import Link from 'next/link'
 import NotificationSvg from '../../../global/svg/notification'
 
-export default function Notification ({count = 4}) {
+export default memo(function Notification ({count = 4}) {
     return (
         <div className="text-gray-500 dark:text-gray-100 relative cursor-pointer">
             <Link href="/panel/notifications">
@@ -12,4 +13,4 @@ export default function Notification ({count = 4}) {
             </Link>
         </div>
     )
-}
+})

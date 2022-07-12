@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
-export default function LoginRegister ({to = 'login'}) {
+export default memo(function LoginRegister ({to = 'login'}) {
 
     const router = useRouter()
 
@@ -13,4 +14,4 @@ export default function LoginRegister ({to = 'login'}) {
             <span onClick={() => router.push(`/auth/${to === 'login' ? 'login' : 'register'}`)} className="text-indigo-600 cursor-pointer">{t(`menu.${to}`)}</span>
         </div>
     )
-}
+})

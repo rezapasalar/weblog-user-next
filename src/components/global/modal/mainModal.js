@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 
-export default function MainModal ({size = 'md', children, modalStatus, cancelHandler, backdrop = false, keyboard = false}) {
+function MainModal ({size = 'md', children, modalStatus, cancelHandler, backdrop = false, keyboard = false}) {
 
     const modalRef = useRef(null)
 
@@ -40,3 +41,14 @@ export default function MainModal ({size = 'md', children, modalStatus, cancelHa
         </div>
     )
 }
+
+MainModal.propTypes = {
+    children: PropTypes.any,
+    size: PropTypes.string,
+    modalStatus: PropTypes.bool.isRequired,
+    cancelHandler: PropTypes.func.isRequired,
+    backdrop: PropTypes.bool,
+    keyboard: PropTypes.bool
+}
+
+export default MainModal

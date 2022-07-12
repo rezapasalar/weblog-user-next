@@ -1,4 +1,6 @@
-export default function Alert ({children, variant = 'primary', toggleRounded = true, className: classes = ''}) {
+import PropTypes from 'prop-types'
+
+function Alert ({children, variant = 'primary', toggleRounded = true, className: classes = ''}) {
 
     const styles = {
         primary: 'bg-indigo-100',
@@ -14,3 +16,12 @@ export default function Alert ({children, variant = 'primary', toggleRounded = t
         </div>
     )
 }
+
+Alert.propTypes = {
+    children: PropTypes.any,
+    variant: PropTypes.string,
+    toggleRounded: PropTypes.bool,
+    className: PropTypes.string
+}
+
+export default Alert

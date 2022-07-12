@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function CheckboxItemSidebar ({children}) {
+export default memo(function CheckboxItemSidebar ({children}) {
 
     const {i18n: {language}} = useTranslation()
 
@@ -12,4 +13,4 @@ export default function CheckboxItemSidebar ({children}) {
             </label>
         </div>
     )
-}
+})

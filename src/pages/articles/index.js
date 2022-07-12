@@ -1,14 +1,14 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Head from 'next/head'
 import { useTranslation } from 'react-i18next'
 
 import { setArticles } from '../../store/slices/articles'
 import { setIsLoading } from '../../store/slices/global'
-import ListArticles from '../../components/user/articles/list'
 import { getArticlesService } from '../../services/articles'
 import PageWrap from '../../components/global/wraps/page'
 import Sidebar from '../../components/user/articles/sidebar'
+import ListArticles from '../../components/user/articles/list'
 import MoreButton from '../../components/global/elements/moreButton'
 
 export default function Articles () {
@@ -23,7 +23,7 @@ export default function Articles () {
         if (!articles.length) pageChangeHandler(1)
     }, [])
 
-    const pageChangeHandler = async (page) => {
+    const pageChangeHandler = useCallback(async (page) => {
         try {
             dispatch(setIsLoading(true))
             const {data: {data, meta: {totalDocs, limit}}} = await getArticlesService(page, 'status:public')
@@ -31,7 +31,7 @@ export default function Articles () {
         } finally {
             dispatch(setIsLoading(false))
         }
-    }
+    }, [])
 
     return (
         <PageWrap>
@@ -47,7 +47,7 @@ export default function Articles () {
 
                 <main className="xl:col-span-9 lg:col-span-8 col-span-12">
                     <ListArticles />
-                    <MoreButton text={t('buttons.moreArticles')} onClick={() => pageChangeHandler(currentPage + 1)} isStill={articles.length < totalCount} />
+                    <MoreButton label={t('buttons.moreArticles')} onClick={() => pageChangeHandler(currentPage + 1)} isStill={articles.length < totalCount} />
                 </main>
             </div>
         </PageWrap>

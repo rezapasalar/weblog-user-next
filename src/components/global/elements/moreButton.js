@@ -1,8 +1,10 @@
+import { memo } from 'react'
+import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import SimpleLoading from '../loadings/simple'
 
-export default function MoreButton ({text, onClick, isStill}) {
+function MoreButton ({label, isStill, onClick}) {
 
     const {isLoading} = useSelector(state => state.global)
 
@@ -15,10 +17,18 @@ export default function MoreButton ({text, onClick, isStill}) {
                     <div className="flex justify-center text-gray-500 dark:text-gray-200 pt-6">
                         <button className={`flex justify-center items-center ${language === 'fa' && 'space-x-reverse'} space-x-2`} onClick={onClick}>
                             {isLoading && <SimpleLoading />}
-                            <span>{text}</span>
+                            <span>{label}</span>
                         </button>
                     </div>
             }
         </>
     )
 }
+
+MoreButton.propTypes = {
+    label: PropTypes.string.isRequired,
+    isStill: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired
+}
+
+export default memo(MoreButton)

@@ -1,4 +1,7 @@
-export default function TextAreaElement ({rows = 5, value = '', size = 'lg', widthFull = true, dir = 'rtl', placeholder = '', className: classes = '', onChange = null}) {
+import { memo } from 'react'
+import PropTypes from 'prop-types'
+
+function TextAreaElement ({rows = "5", value, size = 'lg', widthFull = true, dir = 'rtl', placeholder = null, onChange = null, className: classes = ''}) {
 
     const sizes = {
         xs: 'text-xs px-2 py-1',
@@ -20,3 +23,16 @@ export default function TextAreaElement ({rows = 5, value = '', size = 'lg', wid
         </textarea>
     )
 }
+
+TextAreaElement.propTypes = {
+    rows: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    size: PropTypes.string,
+    widthFull: PropTypes.bool,
+    dir: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    className: PropTypes.string
+}
+
+export default memo(TextAreaElement)    

@@ -10,7 +10,7 @@ export default function ArticleType () {
     return (
         <Sidebar title={t('articlesPage.articleType')}>
             <FlexItemSidebar label={Number('17').toLocaleString(language)}>{isLanguageFA() ? 'رایگان' : 'Free'}</FlexItemSidebar>
-            <FlexItemSidebar label={Number('73').toLocaleString(language)}>{isLanguageFA() ? 'فقد نقدی' : 'Cash Only'}</FlexItemSidebar>
+            <FlexItemSidebar label={Number('73').toLocaleString(language)}>{isLanguageFA() ? 'فقط نقدی' : 'Cash Only'}</FlexItemSidebar>
             <FlexItemSidebar label={Number('89').toLocaleString(language)}>{isLanguageFA() ? 'نقدی و اعضای ویژه' : 'ُSpecial Members'}</FlexItemSidebar>
         </Sidebar>
     )

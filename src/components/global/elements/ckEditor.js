@@ -1,7 +1,9 @@
+import { memo } from 'react'
+import PropTypes from 'prop-types'
 import {  CKEditor  } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
-export default function CKEditorElement ({keyname, value, inputHandler}) {
+function CKEditorElement ({keyname, value, inputHandler}) {
     return (
         <CKEditor
             config={{language: 'fa', toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote']}}
@@ -11,3 +13,11 @@ export default function CKEditorElement ({keyname, value, inputHandler}) {
         />
     )
 }
+
+CKEditorElement.propTypes = {
+    keyname: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    inputHandler: PropTypes.func.isRequired,
+}
+
+export default memo(CKEditorElement)

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo, useCallback } from 'react'
+import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 
 import GroupForm from './group'
@@ -6,7 +7,7 @@ import ColumnGridWrap from '../wraps/columnGrid'
 import SelectElement from '../elements/select'
 import { getCurrentPersianYear } from '../../../modules/helperFunctions'
 
-export default function DateBirth ({label = '', value, inputHandler, error = ''}) {
+function DateBirth ({label = '', value, error = '', inputHandler}) {
 
     const days = [], months = [], years = []
 
@@ -32,10 +33,19 @@ export default function DateBirth ({label = '', value, inputHandler, error = ''}
     return (
         <GroupForm label={label} error={error ? isLanguageFA() ? 'فرمت تاریخ معتبر نیست' : 'Date format is not valid' : ''}>
             <ColumnGridWrap responsive="off" cols="3" gap="3" className="z-50">
-                <SelectElement value={value.day} options={data?.days} onChange={({target: {value}}) => inputHandler('day', value, 'number')} placeholder={t('fields.day')} />
-                <SelectElement value={value.month} options={data?.months} onChange={({target: {value}}) => inputHandler('month', value)} placeholder={t('fields.month')} />
-                <SelectElement value={value.year} options={data?.years} onChange={({target: {value}}) => inputHandler('year', value, 'number')} placeholder={t('fields.year')} />
+                <SelectElement value={value.day} options={data?.days} onChange={useCallback(({target: {value}}) => inputHandler('day', value, 'number'), [])} placeholder={t('fields.day')} />
+                <SelectElement value={value.month} options={data?.months} onChange={useCallback(({target: {value}}) => inputHandler('month', value), [])} placeholder={t('fields.month')} />
+                <SelectElement value={value.year} options={data?.years} onChange={useCallback(({target: {value}}) => inputHandler('year', value, 'number'), [])} placeholder={t('fields.year')} />
             </ColumnGridWrap>
         </GroupForm>
     )
 }
+
+DateBirth.propTypes = {
+    label: PropTypes.string,
+    value: PropTypes.any.isRequired,
+    error: PropTypes.string,
+    inputHandler: PropTypes.func.isRequired
+}
+
+export default memo(DateBirth)

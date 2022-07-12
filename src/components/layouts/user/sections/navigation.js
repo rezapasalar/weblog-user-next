@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import SimpleNavLink from './nav-links/simple'
 
-export default function Navigation ({isShowMenu, setIsShowMenu}) {
+export default memo(function Navigation ({isShowMenu, setIsShowMenu}) {
 
     const {t} = useTranslation()
 
@@ -20,4 +21,4 @@ export default function Navigation ({isShowMenu, setIsShowMenu}) {
             </div>
         </div>
     )
-}
+})

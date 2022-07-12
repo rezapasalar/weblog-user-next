@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import ArrowTopSvg from '../../../global/svg/arrowTop'
 
-const ScrollTop = () => {
+export default function ScrollTop () {
 
     const [isShow, setIsShow] = useState(false)
 
@@ -15,5 +15,3 @@ const ScrollTop = () => {
         </div>
     )
 }
-
-export default ScrollTop

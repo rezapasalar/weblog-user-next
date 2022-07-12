@@ -1,16 +1,16 @@
+import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 import Head from 'next/head'
 import { useSelector, useDispatch } from 'react-redux'
 import useForm from '../../hooks/useForm'
-import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
 
 import { setUserInfo } from '../../store/slices/global'
 import { PageWrap, ColumnGridWrap, InputForm, DateBirthForm, ButtonLoading } from '../../components/global/form'
 import { initialData, profileSchema } from '../../schemas/profile'
-import { updateUserService } from '../../services/users'
-import { getTheme } from '../../modules/helperFunctions'
 import { searchUserService } from '../../services/users'
+import { getTheme } from '../../modules/helperFunctions'
 
 export default function Profile () {
 
@@ -48,6 +48,7 @@ export default function Profile () {
     const update = () => {
         return new Promise(async (resolve, reject) => {
             try {
+                const {updateUserService} = await import('../../services/users')
                 await updateUserService(data)
                 dispatch(setUserInfo(data))
                 return resolve()
@@ -83,7 +84,7 @@ export default function Profile () {
                 </ColumnGridWrap>
 
                 <div className={`${language === 'fa' ? 'text-left' : 'text-right'} space-x-reverse space-x-3 mt-6`}>
-                    <ButtonLoading isSubmit={isSubmit} type="submit" size="md">{t('buttons.save')}</ButtonLoading>
+                    <ButtonLoading label={t('buttons.save')} isSubmit={isSubmit} type="submit" size="md" />
                 </div>
             </form>
         </PageWrap>

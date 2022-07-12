@@ -1,8 +1,10 @@
+import { memo } from 'react'
 import { useNProgress } from '@tanem/react-nprogress'
+
 import Container from './container'
 import Bar from './bar'
 
-export default function Progress ({isAnimating}) {
+export default memo(function Progress ({isAnimating}) {
     
     const {animationDuration, isFinished, progress} = useNProgress({isAnimating})
 
@@ -11,4 +13,4 @@ export default function Progress ({isAnimating}) {
             <Bar animationDuration={animationDuration} progress={progress} />
         </Container>
     )
-}
+})

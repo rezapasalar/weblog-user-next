@@ -1,6 +1,8 @@
+import { memo } from 'react'
+import PropTypes from 'prop-types'
 import ButtonElement from "../elements/button"
 
-export default function ButtonLoading ({children, onClick = null, type = 'button', size = 'lg', variant = 'primary', outline = false , widthFull = false, isSubmit = null, isSubmitEffect = false, className: classes = ''}) {
+function ButtonLoading ({children, label = '', type = 'button', size = 'lg', variant = 'primary', outline = false , widthFull = false, isSubmit = null, isSubmitEffect = false, onClick = null, className: classes = ''}) {
     return (
         <ButtonElement
             disabled={isSubmit !== '' && 'disabled'}
@@ -20,8 +22,24 @@ export default function ButtonLoading ({children, onClick = null, type = 'button
                             <span className={`relative inline-flex rounded-full bg-white w-4 h-4`}></span>
                         </span>
                 }
-                <span className={`${isSubmit !== '' && 'opacity-60'}`}>{children}</span>
+                <span className={`${isSubmit !== '' && 'opacity-60'}`}>{children || label}</span>
             </div>
         </ButtonElement>
     )
 }
+
+ButtonLoading.propTypes = {
+    children: PropTypes.any,
+    label: PropTypes.string,
+    type: PropTypes.string,
+    size: PropTypes.string,
+    variant: PropTypes.string,
+    outline: PropTypes.bool,
+    widthFull: PropTypes.bool,
+    isSubmit: PropTypes.any.isRequired,
+    isSubmitEffect: PropTypes.any,
+    onClick: PropTypes.func,
+    className: PropTypes.string
+}
+
+export default memo(ButtonLoading)

@@ -1,8 +1,11 @@
+import { memo } from 'react'
+import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
+
 import { random, timestampToPersianDate } from '../../../modules/helperFunctions'
 import { CalenderSvg, CommentSvg, LikeSvg, DisLikeSvg } from '../../global/svg'
 
-export default function ShowArticle ({id, title, body, created_at}) {
+function ShowArticle ({id, title, body, created_at}) {
 
     const {t, i18n: {language}} = useTranslation()
 
@@ -32,3 +35,12 @@ export default function ShowArticle ({id, title, body, created_at}) {
         </div>
     )
 }
+
+ShowArticle.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    created_at: PropTypes.number.isRequired,
+}
+
+export default memo(ShowArticle)

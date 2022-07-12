@@ -25,14 +25,13 @@ export default function SingleArticle ({article = null, isError = false}) {
                 </aside>
 
                 <main className="xl:col-span-9 lg:col-span-8 col-span-12 lg:order-2 order-1">
-                    {
-                        isError
-                            ?   <ErrorBoundary isError={isError} />
-                            :
-                                <>
-                                    <ShowArticle {...article} />
-                                    <Comment />
-                                </>
+                    {isError
+                        ?   <ErrorBoundary isError={isError} />
+                        :
+                            <>
+                                <ShowArticle {...article} />
+                                <Comment />
+                            </>
                     }
                 </main>
             </div>

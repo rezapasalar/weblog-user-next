@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import Brand from './brand'
 import Navigation from './navigation'
 import DarkMode from './darkMode'
 import Hamburger from './hamburger'
-import Dropdown from './dropdown'
+import More from './more'
 import LanguageSelector from './languageSelector'
 
 export default function Navbar () {
 
     const [isShowMenu, setIsShowMenu] = useState(false)
+
+    const changeIsShowMenu = useCallback((status) => setIsShowMenu(status), [])
 
     const {i18n: {language}} = useTranslation()
 
@@ -20,16 +22,16 @@ export default function Navbar () {
                 <div className="lg:flex justify-between">
                     <div className="flex justify-between">
                         <Brand />
-                        <Hamburger isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
+                        <Hamburger isShowMenu={isShowMenu} setIsShowMenu={changeIsShowMenu} />
                     </div>
 
                     <div className="flex justify-between lg:flex-grow">
-                        <Navigation isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
+                        <Navigation isShowMenu={isShowMenu} setIsShowMenu={changeIsShowMenu} />
 
                         <div className={`hidden lg:flex justif items-center ${language === 'fa' && 'space-x-reverse'} space-x-2`}>
                             <LanguageSelector />
                             <DarkMode />
-                            <Dropdown />
+                            <More />
                         </div>
                     </div>
                 </div>

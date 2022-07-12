@@ -1,4 +1,7 @@
-export default function Label ({text, alert = null}) {
+import { memo } from 'react'
+import PropTypes from 'prop-types'
+
+function LabelElement ({text, alert = null}) {
 
     const styles = {
         primary: 'bg-infigo-600',
@@ -14,3 +17,10 @@ export default function Label ({text, alert = null}) {
         </label>
     )
 }
+
+LabelElement.propTypes = {
+    text: PropTypes.string.isRequired,
+    alert: PropTypes.any
+}
+
+export default memo(LabelElement)

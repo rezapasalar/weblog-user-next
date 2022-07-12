@@ -1,7 +1,8 @@
-import CommentSvg from '../../../global/svg/comment'
+import { memo } from 'react'
 import {useTranslation} from 'react-i18next'
+import CommentSvg from '../../../global/svg/comment'
 
-export default function ListComments () {
+export default memo(function ListComments () {
 
     const {t} = useTranslation()
 
@@ -11,4 +12,4 @@ export default function ListComments () {
             <div className="text-gray-400 text-lg mt-1">{t('responses.noComment')}</div>
         </div>
     )
-}
+})

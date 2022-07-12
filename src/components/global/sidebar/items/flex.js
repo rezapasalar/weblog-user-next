@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function flexItemSidebar ({children, label = null}) {
+export default memo(function flexItemSidebar ({children, label = null}) {
 
     const {i18n: {language}} = useTranslation()
 
@@ -13,4 +14,4 @@ export default function flexItemSidebar ({children, label = null}) {
             <label className="text-gray-400">{label}</label>
         </div>
     )
-}
+})

@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { useRouter } from 'next/router'
 import LogoSvg from '../../global/svg/logo'
 
-export default function TitleForm ({title}) {
+export default memo(function TitleForm ({title}) {
 
     const router = useRouter()
 
@@ -11,4 +12,4 @@ export default function TitleForm ({title}) {
             <h4 className="text-xl text-center text-gray-500/90 mb-7">{title}</h4>
         </>
     )
-}
+})

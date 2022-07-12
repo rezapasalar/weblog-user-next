@@ -32,6 +32,7 @@ export default function Login () {
             await loginSchema(language).validate(data, {abortEarly: false})
             setErrors({})
             toast.success(t('responses.successfulLogin'), {...getTheme()})
+            localStorage.isAuth = true
             router.push('/panel')
         } catch (errors) {
             if (errors?.name === 'AxiosError') return toast.error(t('responses.axiosError'), {...getTheme()})

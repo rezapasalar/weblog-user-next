@@ -1,8 +1,10 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+
 import Button from '../../../global/elements/button'
 import TextAreaElement from '../../../global/elements/textarea'
 
-export default function CommentForm ({isShowForm, setIsShowForm}) {
+export default memo(function CommentForm ({isShowForm, setIsShowForm}) {
 
     const {t, i18n: {language}} = useTranslation()
 
@@ -17,4 +19,4 @@ export default function CommentForm ({isShowForm, setIsShowForm}) {
             </div>
         </div>
     )
-}
+})

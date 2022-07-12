@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
-export default function SimpleNavLink ({href, label, onClick = null}) {
+export default memo(function SimpleNavLink ({href, label, onClick = null}) {
 
     const router = useRouter()
 
@@ -15,4 +16,4 @@ export default function SimpleNavLink ({href, label, onClick = null}) {
             </a>
         </Link>
     )
-}
+})

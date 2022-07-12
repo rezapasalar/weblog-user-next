@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import CommentForm from './form'
@@ -18,7 +18,7 @@ export default function Comment () {
                 <Button onClick={() => setIsShowForm(true)} className="w-full md:w-auto">+ {t('buttons.newComment')}</Button>
             </div>
 
-            <CommentForm isShowForm={isShowForm} setIsShowForm={setIsShowForm} />
+            <CommentForm isShowForm={isShowForm} setIsShowForm={useCallback(setIsShowForm, [])} />
             <ListComments />
         </div>
     )
