@@ -5,9 +5,9 @@ import GroupForm from './group'
 import SelectElement from '../elements/select'
 
 function SelectForm ({label = '', value, options, keyname, type = 'string', error = '', inputHandler}) {
-    return (
+    return ( 
         <GroupForm label={label} error={error}>
-            <SelectElement value={value} keyname={keyname} type={type} options={options} inputHandler={inputHandler} />
+            <SelectElement value={value} keyname={keyname} type={type} options={options} onChange={inputHandler} />
         </GroupForm>
     )
 }
