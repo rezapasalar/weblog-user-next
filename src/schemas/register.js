@@ -1,5 +1,5 @@
 import { object, string, ref } from 'yup'
-import { messages, transfer } from '.'
+import { t } from '../config/i18n'
 import { searchUserService } from '../services/users'
 
 export const initialData = {
@@ -14,41 +14,20 @@ export const initialData = {
     passwordConfirmation: ''
 }
 
-export const registerSchema = (language = 'fa') => { 
-    return object({
-        name: 
-            string()
-            .required(transfer({rule: 'required', field: 'name', language}))
-        ,family:
-            string()
-            .required(transfer({rule: 'required', field: 'family', language}))
-        ,day: 
-            string()
-            .required(transfer({rule: 'required', field: 'day', language}))
-        ,month: 
-            string()
-            .required(transfer({rule: 'required', field: 'month', language}))
-        ,year: 
-            string()
-            .required(transfer({rule: 'required', field: 'year', language}))
-        ,email:
-            string()
-            .required(transfer({rule: 'required', field: 'email', language}))
-            .email(messages[language]['email'])
-            .test({
-                message: () => transfer({rule: 'duplicate', field: 'email', language}),
-                test: async (email, {parent: {id}}) => {
-                    const {data: {data}} = await searchUserService('email', email)
-                    return data.length && data[0].id !== id ? false : true
-                }
-            })
-        ,password:
-            string()
-            .required(transfer({rule: 'required', field: 'password', language}))
-            .min(8, transfer({rule: 'min', field: 'password', value: 8, language}))
-            .max(32, transfer({rule: 'max', field: 'password', value: 32, language}))
-        ,passwordConfirmation:
-            string()
-            .oneOf([ref('password'), null], messages[language]['confirmed'])
-    })
-}
+export const registerSchema = object({
+    name: string().required(),
+    family: string().required(),
+    day: string().required(),
+    month: string().required(),
+    year: string().required(),
+    email: string().required().email()
+        .test({
+            message: () => t('validation.messages.duplicate', {attribute: t('validation.attributes.email')}),
+            test: async (email, {parent: {id}}) => {
+                const {data: {data}} = await searchUserService('email', email)
+                return data.length && data[0].id !== id ? false : true
+            }
+        }),
+    password: string().required().min(8).max(32),
+    passwordConfirmation: string().oneOf([ref('password')])
+})

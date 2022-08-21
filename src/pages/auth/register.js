@@ -29,7 +29,7 @@ export default function Register () {
         try {
             e.preventDefault()
             setIsSubmit('create')
-            await registerSchema(language).validate(data, {abortEarly: false})
+            await registerSchema.validate(data, {abortEarly: false})
             await create()
             setErrors({})
             toast.success(t('responses.successfulRegistration'), {...getTheme()})

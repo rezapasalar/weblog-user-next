@@ -32,7 +32,7 @@ export default function Profile () {
         try {
             e.preventDefault()
             setIsSubmit('update')
-            await profileSchema(language).validate(data, {abortEarly: false})
+            await profileSchema.validate(data, {abortEarly: false})
             await update()
             setErrors({})
             toast.success(t('responses.successfulSave'), {...getTheme()})

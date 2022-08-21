@@ -1,9 +1,6 @@
 import { object, string } from 'yup'
-import { getCurrentPersianYear } from '../modules/helperFunctions'
-import { messages, transfer } from '.'
-import { searchUserService } from '../services/users'
-
-const currentYear = Number(getCurrentPersianYear('en'))
+/*import { t } from '../config/i18n'
+import { searchUserService } from '../services/users'*/
 
 export const initialData = {
     is_admin: 0,
@@ -17,41 +14,20 @@ export const initialData = {
     email: '', 
 }
 
-export const profileSchema = (language = 'fa') => { 
-    return object({
-        name: 
-            string()
-            .required(transfer({rule: 'required', field: 'name', language}))
-        ,family:
-            string()
-            .required(transfer({rule: 'required', field: 'family', language}))
-        ,day: 
-            string()
-            .required(transfer({rule: 'required', field: 'day', language}))
-        ,month: 
-            string()
-            .required(transfer({rule: 'required', field: 'month', language}))
-        ,year: 
-            string()
-            .required(transfer({rule: 'required', field: 'year', language}))
-        ,code:
-            string()
-            .required(transfer({rule: 'required', field: 'code', language}))
-            .length(10, transfer({rule: 'length', field: 'code', value: 10, language}))
-        ,mobile:
-            string()
-            .required(transfer({rule: 'required', field: 'mobile', language}))
-            .length(11, transfer({rule: 'length', field: 'mobile', value: 11, language}))
-        ,email:
-            string()
-            .required(transfer({rule: 'required', field: 'email', language}))
-            .email(messages[language]['email'])
-            .test({
-                message: () => transfer({rule: 'duplicate', field: 'email', language}),
-                test: async (email, {parent: {id}}) => {
-                    const {data: {data}} = await searchUserService('email', email)
-                    return data.length && data[0].id !== id ? false : true
-                }
-            })
-    })
-}
+export const profileSchema = object({
+    name: string().required(),
+    family: string().required(),
+    day: string().required(),
+    month: string().required(),
+    year: string().required(),
+    code: string().required().length(10)
+    ,mobile: string().required().length(11),
+    /*email: string().required().email()
+        .test({
+            message: () => t('validation.messages.duplicate', {attribute: t('validation.attributes.email')}),
+            test: async (email, {parent: {id}}) => {
+                const {data: {data}} = await searchUserService('email', email)
+                return data.length && data[0].id !== id ? false : true
+            }
+        })*/
+})

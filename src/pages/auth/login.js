@@ -29,7 +29,7 @@ export default function Login () {
         try {
             e.preventDefault()
             setIsSubmit('create')
-            await loginSchema(language).validate(data, {abortEarly: false})
+            await loginSchema.validate(data, {abortEarly: false})
             setErrors({})
             toast.success(t('responses.successfulLogin'), {...getTheme()})
             localStorage.isAuth = true
