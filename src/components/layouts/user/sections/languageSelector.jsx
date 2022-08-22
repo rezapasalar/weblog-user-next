@@ -10,7 +10,6 @@ export default function LanguageSelector () {
 
     const changeLang = (lng) => {
         changeLanguage(lng)
-        localStorage.locale = lng
         document.querySelector('html').dir = lng === 'fa' ? 'rtl' : 'ltr'
     }
 
