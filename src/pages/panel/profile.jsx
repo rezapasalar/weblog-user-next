@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
 import { Formik, Form } from 'formik'
 
-import { PageWrap, ColumnGridWrap, InputFormik, NameFamilyFormik, DateBirthFormik, PassPassConfirmFormik, ButtonLoading } from '../../components/global/formik'
+import { PageWrap, ColumnGridWrap, InputFormik, NameFamilyFormik, DateBirthFormik, ButtonLoading } from '../../components/global/formik'
 import { setUserInfo } from '../../store/slices/global'
 import { initialValues as initVal, profileSchema } from '../../schemas/profile'
 import { searchUserService } from '../../services/users'
@@ -33,9 +33,7 @@ export default function Profile () {
             setErrors({})
             toast.success(t('responses.successfulSave'), {...getTheme()})
         } catch (errors) {
-            if (errors?.name === 'AxiosError') return toast.error(t('responses.axiosError'), {...getTheme()})
-            setErrors(mapYupErrors(errors))
-            toast.error(t('responses.formErrors'), {...getTheme()})
+            toast.error(t('responses.axiosError'), {...getTheme()})
         }
     }
 
