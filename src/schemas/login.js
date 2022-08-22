@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 
-export const initialData = {
+export const initialValues = {
     email: 'mitra@yahoo.com',
     password: '11111111'
 }

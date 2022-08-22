@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.8.2",
     "@tanem/react-nprogress": "^5.0.4",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "i18next": "^21.8.10",
     "next": "12.1.6",
     "next-connect": "^0.12.2",
