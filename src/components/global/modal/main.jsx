@@ -15,7 +15,9 @@ function MainModal ({size = 'md', children, modalStatus, cancelHandler, backdrop
         if (modalStatus) {
             modalRef.current.scrollTo({top: 0})
             document.querySelector('body').classList.add('overflow-hidden')
-        } else {
+        }
+
+        return () => {
             document.querySelector('body').classList.remove('overflow-hidden')
         }
     }, [modalStatus])
